@@ -1,0 +1,12 @@
+.container-fluid{
+
+    height: 85vh;
+}
+
+.h4{
+    display: flex;
+}
+
+mat-form-field{
+    width: 100%;
+}

@@ -1,0 +1,53 @@
+<app-nav-menu></app-nav-menu>
+<div class="container-fluid w-100">
+  <div class="container w-100 h-100 d-flex align-items-center justify-content-center">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-tittle">
+          <span class="h3 justify-content-center align-items-center d-flex">Producto</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="add()">
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input type="text" matInput formControlName="nombre">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="outline">
+              <mat-label>Proveedor</mat-label>
+              <input matInput formControlName="proveedor">
+              <mat-icon matSuffix>manage_accounts</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <mat-form-field appearance="outline">
+              <mat-label>Cantidad</mat-label>
+              <input type="number" matInput formControlName="cantidad">
+              <mat-icon matSuffix>123</mat-icon>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="outline">
+              <mat-label>Precio</mat-label>
+              <input type="number" matInput formControlName="precio">
+              <mat-icon matSuffix>attach_money</mat-icon>
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col"><button type="submit" class="btn btn-outline-secondary w-100">Guardar</button> 
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>
