@@ -12,6 +12,10 @@ import { MaterialModule } from './shared/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductoComponent } from './components/producto/producto.component';
 import { TablaProdComponent } from './components/tabla-prod/tabla-prod.component';
+import { InfoDatosComponent } from './components/info-datos/info-datos.component';
+import { EdditDatosComponent } from './components/eddit-datos/eddit-datos.component';
+import { DeleteDatosComponent } from './components/delete-datos/delete-datos.component';
+import { EliminarDatosComponent } from './components/eliminar-datos/eliminar-datos.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,11 @@ import { TablaProdComponent } from './components/tabla-prod/tabla-prod.component
     NavMenuComponent,
     FooterComponent,
     ProductoComponent,
-    TablaProdComponent
+    TablaProdComponent,
+    InfoDatosComponent,
+    EdditDatosComponent,
+    DeleteDatosComponent,
+    EliminarDatosComponent
   ],
   imports: [
     BrowserModule,

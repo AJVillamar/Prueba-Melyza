@@ -1,0 +1,47 @@
+<div class="container-fluid w-100 py-3">
+    <div class="container w-100 h-100 d-flex align-items-center justify-content-center">
+        <div class="card border-0">
+            <div class="card-header bg-transparent">
+                <div class="card-title">
+                    <span class="h3 text-uppercase m-2">Datos</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="edit()">
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>User</mat-label>
+                                <input type="text" matInput formControlName="user">
+                                <mat-icon matSuffix>person</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Password</mat-label>
+                                <input type="text" matInput formControlName="password">
+                                <mat-icon matSuffix>lock</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nombres</mat-label>
+                                <input matInput formControlName="nombres">
+                                <mat-icon matSuffix>person</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary w-100">Editar</button>
+                        </div>
+                    </div>
+                </form>                
+            </div>
+        </div>
+    </div>
+</div>

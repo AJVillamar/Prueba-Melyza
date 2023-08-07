@@ -18,13 +18,10 @@ export class TablaProdComponent implements OnInit {
 
   constructor(
     private _datosProductosService: DatosproductosService
-  ){
-
-  }
+  ){ }
 
   ngOnInit() {
     this.mostrarDatosProd()
-      
   }
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -51,19 +48,12 @@ export class TablaProdComponent implements OnInit {
     this.dataSource.data = this._datosProductosService.datosprod
   }
 
-
   buscar(id: number){
-  console.log(id);
+    console.log(id);
   }
   
   agregarProductos(){
 
   }
-  
 
 }
-
- 
-
-
-

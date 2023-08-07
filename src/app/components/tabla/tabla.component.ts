@@ -1,9 +1,15 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { IDatos } from 'src/app/interfaces/idatos';
 import { DatosService } from 'src/app/services/datos.service';
+import { InfoDatosComponent } from '../info-datos/info-datos.component';
+import { EdditDatosComponent } from '../eddit-datos/eddit-datos.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DeleteDatosComponent } from '../delete-datos/delete-datos.component';
+import { EliminarDatosComponent } from '../eliminar-datos/eliminar-datos.component';
 
 @Component({
   selector: 'app-tabla',
@@ -16,7 +22,9 @@ export class TablaComponent implements OnInit{
   dataSource = new MatTableDataSource<IDatos>();
 
   constructor(
-    private _datosService: DatosService  
+    private _datosService: DatosService,
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {  
   }
 
@@ -45,12 +53,49 @@ export class TablaComponent implements OnInit{
   } 
 
   mostrarDatos(){
-    this.dataSource.data =  this._datosService.datos
+    this.dataSource.data =  this._datosService.listDatos();
   }
 
-
-  buscar(id: number){
-    console.log(id);
-    
+  mostrar(data: IDatos){
+    this.dialog.open(InfoDatosComponent,{
+      autoFocus: false,
+      disableClose: false,
+      width: 'auto',
+      data: data 
+    })
   }
+
+  editar(datos: IDatos){
+    this.dialog.open(EdditDatosComponent, {
+      autoFocus: false,
+      disableClose: false,
+      width: 'auto',
+      data: datos
+    }).afterClosed().subscribe(
+    (recibo) => {
+      if(recibo == "Exito"){
+        this.mostrarDatos();        
+        this._snackBar.open("Actualizado","Bien")    
+        return
+      }
+      this._snackBar.open("Lo sentimos","Error")   
+    }) 
+  }
+
+  eliminar(datos: IDatos){
+    this.dialog.open(EliminarDatosComponent, {
+      autoFocus: false,
+      disableClose: false,
+      width: 'auto',
+      data: datos
+    }).afterClosed().subscribe(
+    (recibo) => {
+      if(recibo == "Eliminado"){
+        this.mostrarDatos();        
+        this._snackBar.open("Eliminado","Bien")    
+        return
+      }
+      this._snackBar.open("Lo sentimos","Error")   
+    }) 
+  }  
 }

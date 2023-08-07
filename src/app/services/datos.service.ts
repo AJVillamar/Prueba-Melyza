@@ -17,7 +17,27 @@ export class DatosService {
     {id: 6, user: "Ang", password: "Villamar", nombres: 'lo Jahir', estado: true},
   ]
 
+  listDatos(){
+    return this.datos.filter(elemento => elemento.estado===true);
+  }
+
   add(newDato: IDatos){
     this.datos.push(newDato)
+  }
+
+  update(updateDato: IDatos){
+    this.datos.forEach(elemento => {
+      if (elemento.id === updateDato.id) {
+        Object.assign(elemento, updateDato);        
+      }
+    });
+  }
+
+  eliminar(id: number){
+    this.datos.forEach(elemento => {
+      if (elemento.id === id) {
+        elemento.estado = false;
+      }
+    });
   }
 }

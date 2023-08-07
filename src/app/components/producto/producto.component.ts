@@ -28,6 +28,7 @@ export class ProductoComponent {
   
 
   }
+
   add(){
     if(this.form.invalid){
       this._snackBar.open('Llenar todos los campos','Error', {
@@ -35,29 +36,22 @@ export class ProductoComponent {
         horizontalPosition: 'right',
         verticalPosition: 'bottom'
       });
-      return
-
-      
+      return 
     }
  
  
-      const newDatosProd: IDatosProductos = {
-        id:       this._datosproductosService.datosprod.length+1,
-        nombre:   this.form .value.nombre,
-        proveedor:this.form .value.proveedor,
-        cantidad: this.form .value.cantidad,
-        precio:   this.form .value.precio,
-        estado:   true,
+    const newDatosProd: IDatosProductos = {
+      id:       this._datosproductosService.datosprod.length+1,
+      nombre:   this.form .value.nombre,
+      proveedor:this.form .value.proveedor,
+      cantidad: this.form .value.cantidad,
+      precio:   this.form .value.precio,
+      estado:   true,
 
 
-      }
-        this._datosproductosService.add(newDatosProd)
-        console.log(this._datosproductosService.datosprod);
-        this.form.reset()
-
+    }
+    this._datosproductosService.add(newDatosProd)
+    console.log(this._datosproductosService.datosprod);
+    this.form.reset()
   }
-
-  
-
-
 }
