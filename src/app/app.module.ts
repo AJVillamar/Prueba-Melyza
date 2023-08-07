@@ -11,6 +11,7 @@ import { FooterComponent } from './layouts/footer/footer.component';
 import { MaterialModule } from './shared/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProductoComponent } from './components/producto/producto.component';
+import { TablaProdComponent } from './components/tabla-prod/tabla-prod.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ProductoComponent } from './components/producto/producto.component';
     TablaComponent,
     NavMenuComponent,
     FooterComponent,
-    ProductoComponent
+    ProductoComponent,
+    TablaProdComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+.container-fluid{
+    height: 84vh;
+}
+table {
+    width: 100%;
+
+}
+  
+td, th {
+    width: 20%;
+    font-size: .8rem;
+}
+
+.card{
+    margin-top: 10px;
+}
+
+mat-form-field{
+    width: 114%;
+}
