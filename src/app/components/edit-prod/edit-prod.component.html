@@ -1,0 +1,57 @@
+<div class="container-fluid w-100 py-3">
+    <div class="container w-100 h-100 d-flex align-items-center justify-content-center">
+        <div class="card border-0">
+            <div class="card-header bg-transparent">
+                <div class="card-title">
+                    <span class="h3 text-uppercase m-2">Datos</span>
+                </div>
+            </div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="edit()">
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Nombre</mat-label>
+                                <input type="text" matInput formControlName="nombre">
+                                <mat-icon matSuffix>person</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Proveedor</mat-label>
+                                <input type="text" matInput formControlName="proveedor">
+                                <mat-icon matSuffix>manage_accounts</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Cantidad</mat-label>
+                                <input matInput formControlName="cantidad">
+                                <mat-icon matSuffix>123</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <mat-form-field appearance="outline">
+                                <mat-label>Precio</mat-label>
+                                <input matInput formControlName="precio">
+                                <mat-icon matSuffix>attach_money</mat-icon>
+                            </mat-form-field>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button type="submit" class="btn btn-info w-100">Editar</button>
+                        </div>
+                    </div>
+                </form>                
+            </div>
+        </div>
+    </div>
+</div>

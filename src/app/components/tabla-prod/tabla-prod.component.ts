@@ -4,6 +4,11 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { IDatosProductos } from 'src/app/interfaces/i-datos-productos';
 import { DatosproductosService } from 'src/app/services/datosproductos.service';
+import { infoproductComponent } from '../infoproduct/infoproduct.component';
+import { MatDialog } from '@angular/material/dialog';
+import { EditProdComponent } from '../edit-prod/edit-prod.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { EliminarDatosProdComponent } from '../eliminar-datos-prod/eliminar-datos-prod.component';
 
 @Component({
   selector: 'app-tabla-prod',
@@ -17,7 +22,9 @@ export class TablaProdComponent implements OnInit {
 
 
   constructor(
-    private _datosProductosService: DatosproductosService
+    private _datosProductosService: DatosproductosService,
+    private dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ){ }
 
   ngOnInit() {
@@ -45,15 +52,53 @@ export class TablaProdComponent implements OnInit {
   }
 
   mostrarDatosProd(){
-    this.dataSource.data = this._datosProductosService.datosprod
+    this.dataSource.data = this._datosProductosService.listDatosP();
   }
 
-  buscar(id: number){
-    console.log(id);
+  mostrar(data: IDatosProductos){
+    this.dialog.open(infoproductComponent,{
+      autoFocus: false,
+      disableClose: false,
+      width: 'auto',
+      data: data 
+    })
   }
   
-  agregarProductos(){
-
+  
+  editar(datosprod: IDatosProductos){
+    this.dialog.open(EditProdComponent, {
+      autoFocus: false,
+      disableClose: false,
+      width: 'auto',
+      data: datosprod
+    }).afterClosed().subscribe(
+    (recibo) => {
+      if(recibo == "Exito"){
+        this.mostrarDatosProd();        
+        this._snackBar.open("Actualizado","Bien")    
+        return
+      }
+      this._snackBar.open("Lo sentimos","Error")   
+    }) 
   }
 
+  eliminar(datos: IDatosProductos){
+    this.dialog.open(EliminarDatosProdComponent, {
+      autoFocus: false,
+      disableClose: false,
+      width: 'auto',
+      data: datos
+    }).afterClosed().subscribe(
+    (recibo) => {
+      if(recibo == "Eliminado"){
+        this.mostrarDatosProd();        
+        this._snackBar.open("Eliminado","Bien")    
+        return
+      }
+      this._snackBar.open("Lo sentimos","Error")   
+    }) 
+  }  
+
+
 }
+

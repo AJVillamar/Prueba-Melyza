@@ -16,6 +16,10 @@ import { InfoDatosComponent } from './components/info-datos/info-datos.component
 import { EdditDatosComponent } from './components/eddit-datos/eddit-datos.component';
 import { DeleteDatosComponent } from './components/delete-datos/delete-datos.component';
 import { EliminarDatosComponent } from './components/eliminar-datos/eliminar-datos.component';
+import { infoproductComponent } from './components/infoproduct/infoproduct.component';
+import { EditProdComponent } from './components/edit-prod/edit-prod.component';
+import { DeleteProducComponent } from './components/delete-produc/delete-produc.component';
+import { EliminarDatosProdComponent } from './components/eliminar-datos-prod/eliminar-datos-prod.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { EliminarDatosComponent } from './components/eliminar-datos/eliminar-dat
     InfoDatosComponent,
     EdditDatosComponent,
     DeleteDatosComponent,
-    EliminarDatosComponent
+    EliminarDatosComponent,
+    infoproductComponent,
+    EditProdComponent,
+    DeleteProducComponent,
+    EliminarDatosProdComponent
   ],
   imports: [
     BrowserModule,
